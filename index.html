@@ -19,27 +19,6 @@
     <link rel="apple-touch-icon" href="https://file.youtochat.com/images/20260216/1771224856844_qdqqd.jpeg">
     <meta name="apple-mobile-web-app-title" content="kwyou">
     
-    /* 👇 强制修复键盘弹起时的底部白条 👇 */
-    html, body {
-        height: 100% !important;
-        min-height: 100% !important;
-        overflow: hidden !important; /* 防止页面整体滚动露白 */
-        background-color: #f5f5f5 !important; /* 将底色统一，即使露白也是相近的颜色 */
-    }
-
-       /* 覆盖各种可能产生白边的底部容器 */
-    .main-chat-area, .chat-container, #chat-container {
-        /* 重点：给聊天记录留出底部的空间，让消息可以滚到输入框上面 */
-        padding-bottom: 80px !important; 
-    }
-    
-    .chat-input-area, #chat-input-area, .input-bar, #input-bar {
-        padding-bottom: 0 !important;
-        margin-bottom: 0 !important;
-        border-bottom: none !important;
-    }
-        </style>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.10.0/localforage.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
@@ -2672,5 +2651,18 @@
     });
   }
 </script>
+        <style>
+    /* 重点：给聊天记录列表垫底，让最后一条消息不会被输入框挡住 */
+    .main-chat-area, #chat-container {
+        /* 数值设大一点，100px 相当于一个输入框的高度；如果你觉得不够，可以改成 120px */
+        padding-bottom: 100px !important; 
+    }
+    
+    /* 确保输入框区域没有任何多余的底部边距 */
+    .chat-input-area, #chat-input-area, .input-bar {
+        margin-bottom: 0 !important;
+        border-bottom: none !important;
+    }
+</style>
 </body>
 </html>
