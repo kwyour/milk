@@ -2664,5 +2664,27 @@
         border-bottom: none !important;
     }
 </style>
+      <style>
+    /* 1. 干掉那个半透明的长条遮挡物（隐藏原版的底部遮罩/占位） */
+    .main-chat-area::after, .chat-container::after,
+    .chat-gradient, .bottom-mask, #bottom-mask, .scroll-bottom {
+        display: none !important;
+        opacity: 0 !important;
+        background: transparent !important;
+    }
+
+    /* 2. 给聊天记录留出刚好高于输入框的空白 */
+    .main-chat-area, #chat-container {
+        /* 20px 相当于一小段距离，既能露出来，又不会空太多 */
+        padding-bottom: 20px !important; 
+        background: transparent !important; /* 防止背景被长条色块截断 */
+    }
+    
+    /* 3. 输入框区域紧贴底部，不留白条 */
+    .chat-input-area, #chat-input-area, .input-bar, #input-bar {
+        margin-bottom: 0 !important;
+        border-bottom: none !important;
+    }
+</style>  
 </body>
 </html>
