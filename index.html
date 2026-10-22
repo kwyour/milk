@@ -27,14 +27,17 @@
         background-color: #f5f5f5 !important; /* 将底色统一，即使露白也是相近的颜色 */
     }
 
-    /* 覆盖各种可能产生白边的底部容器 */
-    .main-chat-area, .chat-container, #chat-container, 
+       /* 覆盖各种可能产生白边的底部容器 */
+    .main-chat-area, .chat-container, #chat-container {
+        /* 重点：给聊天记录留出底部的空间，让消息可以滚到输入框上面 */
+        padding-bottom: 80px !important; 
+    }
+    
     .chat-input-area, #chat-input-area, .input-bar, #input-bar {
         padding-bottom: 0 !important;
         margin-bottom: 0 !important;
         border-bottom: none !important;
     }
-</style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.10.0/localforage.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
